@@ -36,8 +36,10 @@ public class WordNode {
             throw new IllegalArgumentException("Letter given is not a valid nucleotide");
         }
         this.letter = letter;
-        if (isEnd == true){
+        if (isEnd){
             this.modifier = 1;
+        } else {
+            this.modifier = -1;
         }
         this.branches = new HashMap<>();
 
@@ -78,5 +80,9 @@ public class WordNode {
     //Adds one to the modifier
     public void increase(){
         this.modifier += 1;
+    }
+
+    public void changeToEnd(){
+        this.modifier = 1;
     }
 }

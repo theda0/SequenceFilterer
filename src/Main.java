@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Path to the file
-        String filePath = "seqdump.txt";
+        String filePath = "testFile.txt";
         List<String> lines = new ArrayList<>();
 
         // Create a BufferedReader in a try-with-resources statement
@@ -24,14 +24,15 @@ public class Main {
                     toBeBuilt.append(line);
                 }
             }
+            lines.add(toBeBuilt.toString());
         } catch (IOException e) {
             // Handle the exception
             System.err.println("Error reading file: " + e.getMessage());
         }
 
-        /*for(String c : lines){
+        for(String c : lines){
             System.out.println(c);
             System.out.println( '\n');
-        }*/
+        }
     }
 }
