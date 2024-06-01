@@ -16,7 +16,7 @@ public class ModifiedTrie {
     //Add the given string to our modified trie
     public void addString(String string){
         if (string.isEmpty()){
-            throw new IllegalArgumentException("String must not be empty");
+            return;
         }
         WordNode tracker = sentinel;
 

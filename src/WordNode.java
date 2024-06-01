@@ -16,7 +16,7 @@ public class WordNode {
 
         //Make sure letter is valid
         if (!nucleotides.getNucleotides().contains(letter)){
-            throw new IllegalArgumentException("Letter given is not a valid nucleotide");
+            throw new IllegalArgumentException("The letter "  + letter + " is not a valid nucleotide");
         }
 
         this.letter = letter;
