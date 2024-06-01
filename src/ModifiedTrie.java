@@ -44,7 +44,7 @@ public class ModifiedTrie {
             tracker.getBranches().put(letter, node);
             this.length += 1; //Another unique string has been given
         } else {
-            if (potentialNextNode.isEnd()){
+            if (potentialNextNode.getModifier() > 0){
                 potentialNextNode.increase();
             } else{
                 potentialNextNode.changeToEnd();
@@ -54,9 +54,40 @@ public class ModifiedTrie {
 
     }
 
-    public List<String> modifiedList(){
-        List<String> returnList = new ArrayList<>();
+    public List<Pair> modifiedList(){
+        return helpingList(sentinel);
+    }
 
+    //Helper method for one above
+    public List<Pair> helpingList(WordNode node){
+        List<Pair> returnList = new ArrayList<>();
+
+        if(node == null) {
+            return returnList;
+        }
+        char cr = node.getLetter();
+        String str = Character.toString(cr);
+
+        //If node is an end node, add its corresponding number amount to our list
+        if (node.getModifier() > 0){
+            returnList.add(new Pair(node.getModifier(), str));
+        }
+
+        //Add the letter of our node to the corresponding ones for each of its branches, then to our list
+        if(node == sentinel) {
+            for (Character c : node.getBranches().keySet()) {
+                List<Pair> subList = helpingList(node.getBranches().get(c));
+                returnList.addAll(subList);
+            }
+        } else {
+            for (Character c : node.getBranches().keySet()) {
+                List<Pair> subList = helpingList(node.getBranches().get(c));
+                for (Pair p : subList) {
+                    p.modifyString(str + p.second());
+                    returnList.add(p);
+                }
+            }
+        }
         return returnList;
     }
 }

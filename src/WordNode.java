@@ -72,10 +72,10 @@ public class WordNode {
         return this.branches;
     }
 
-    //Returns true if the wordNode is the end of a sequence
-    public boolean isEnd(){
-        return (this.modifier > 0);
+    public int getModifier(){
+        return this.modifier;
     }
+
 
     //Adds one to the modifier
     public void increase(){

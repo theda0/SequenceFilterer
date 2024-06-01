@@ -30,9 +30,6 @@ public class Main {
             System.err.println("Error reading file: " + e.getMessage());
         }
 
-        for(String c : lines){
-            System.out.println(c);
-            System.out.println( '\n');
-        }
+
     }
 }
