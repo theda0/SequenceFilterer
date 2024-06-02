@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Path to the file
-        String filePath = "seqdump2.txt";
+        String filePath = "seqdump.txt";
         List<String> lines = new ArrayList<>();
 
         // Create a BufferedReader in a try-with-resources statement
@@ -31,6 +31,11 @@ public class Main {
             System.err.println("Error reading file: " + e.getMessage());
         }
 
+        /*for(String s : lines){
+            System.out.println(s);
+            System.out.println('\n');
+        }*/
+
         ModifiedTrie storageTrie = new ModifiedTrie(lines);
         List<Pair> newLines = storageTrie.modifiedList();
 
@@ -40,7 +45,10 @@ public class Main {
             for(int i = 0; i < newLines.size(); ++i){
                 Pair pear = newLines.get(i);
                 writer.write(">" + String.valueOf(pear.first()) + "\n"); //The first info line
-                writer.write(pear.second() + "\n"); //The sequence following it
+                String[] stringChunks = StringSplitter.StringSplit(pear.second(), 80);
+                for(String a : stringChunks) {
+                    writer.write(a + "\n"); //The sequence following it
+                }
             }
         } catch (IOException e) {
             // Handle any IO exceptions

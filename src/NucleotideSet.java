@@ -12,6 +12,8 @@ public class NucleotideSet {
         nucleotides.add('T');
         nucleotides.add('C');
         nucleotides.add('G');
+        nucleotides.add('S'); //?
+        nucleotides.add('M'); //?
     }
 
     // Getter method to access the nucleotides
