@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Path to the file
-        String filePath = "seqdump2.txt";
+        String filePath = "testFile.txt";
         List<String> lines = new ArrayList<>();
 
         // Create a BufferedReader in a try-with-resources statement
@@ -18,7 +18,7 @@ public class Main {
             StringBuilder toBeBuilt = new StringBuilder();
             //
             while ((line = br.readLine()) != null) {
-                if (line.charAt(0) == '>'){
+                if (line.charAt(0) == '>'){ //I.e. the line is the beginning of a new title line
                     lines.add(toBeBuilt.toString());
                     toBeBuilt.delete(0, toBeBuilt.length());
                 } else {

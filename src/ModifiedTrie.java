@@ -1,5 +1,8 @@
+import net.sf.saxon.functions.Reverse;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class ModifiedTrie {
 
@@ -55,7 +58,11 @@ public class ModifiedTrie {
     }
 
     public List<Pair> modifiedList(){
-        return helpingList(sentinel);
+
+        List<Pair> list = helpingList(sentinel);
+        Collections.sort(list); //Sort the list (according to number as in Pair class)
+        Collections.reverse(list); //Reverse it as we want the highest number first
+        return list;
     }
 
     //Helper method for one above
@@ -73,8 +80,8 @@ public class ModifiedTrie {
             returnList.add(new Pair(node.getModifier(), str));
         }
 
-        //Add the letter of our node to the corresponding ones for each of its branches, then to our list
-        if(node == sentinel) {
+        //Add the letter of our node to the corresponding ones for each of its branches, then to our list using recursion
+        if(node == sentinel) { //Ignore the sentinel's letter
             for (Character c : node.getBranches().keySet()) {
                 List<Pair> subList = helpingList(node.getBranches().get(c));
                 returnList.addAll(subList);
