@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Path to the file
-        String filePath = "seqdump.txt";
+        String filePath = "seqdump2.txt";
         List<String> lines = new ArrayList<>();
 
         // Create a BufferedReader in a try-with-resources statement
