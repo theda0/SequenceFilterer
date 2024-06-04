@@ -36,11 +36,7 @@ public class WordNode {
             throw new IllegalArgumentException("Letter given is not a valid nucleotide");
         }
         this.letter = letter;
-        if (isEnd){
-            this.modifier = 1;
-        } else {
-            this.modifier = -1;
-        }
+        this.modifier = 1;
         this.branches = new HashMap<>();
 
         //Fills in the HashMap with null values at each letter in our baseDictionary
@@ -52,15 +48,10 @@ public class WordNode {
     //Attaches a given node
     public void attachNode(WordNode base){
         char letter = base.getLetter();
-        if (letter == 'A'){
-            this.branches.put('A', base);
-        } else if (letter == 'C'){
-            this.branches.put('C', base);
-        }
-        else if (letter == 'T'){
-            this.branches.put('T', base);
+        if (!nucleotides.getNucleotides().contains(letter)){
+            throw new IllegalArgumentException("Character " + letter + " is not supported");
         } else {
-            this.branches.put('G', base);
+            this.branches.put(letter, base);
         }
     }
 

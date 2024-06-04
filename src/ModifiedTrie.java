@@ -24,7 +24,7 @@ public class ModifiedTrie {
         WordNode tracker = sentinel;
 
         //Iterate over everything but the last character of the string
-        for(int i  = 0; i < string.length()-1; ++i){
+        for(int i  = 0; i < string.length()-1; i++){
 
             char letter = string.charAt(i);
             WordNode potentialNextNode = tracker.getBranches().get(letter);
@@ -96,5 +96,9 @@ public class ModifiedTrie {
             }
         }
         return returnList;
+    }
+
+    public int getLength(){
+        return this.length;
     }
 }
