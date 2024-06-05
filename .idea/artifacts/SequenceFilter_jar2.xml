@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SequenceFilter:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/SequenceFilter_jar2</output-path>
+    <root id="archive" name="SequenceFilter.jar">
+      <element id="module-output" name="SequenceFilter" />
+    </root>
+  </artifact>
+</component>

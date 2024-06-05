@@ -1,4 +1,4 @@
-import net.sf.saxon.functions.Reverse;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class ModifiedTrie {
             }
         }
 
-        //Now we look at the cae of the final letter
+        //Now we look at the case of the final letter
         char letter = string.charAt(string.length() - 1);
         WordNode potentialNextNode = tracker.getBranches().get(letter);
 
